@@ -13,6 +13,7 @@ const Component = () => {
 };
 
 const MemoComponent = React.memo(() => {
+  console.log("test");
   const renderCount = useRenderCounter();
   return (
     <div className="frame">
