@@ -1,6 +1,10 @@
 import React from "react";
 import useRenderCounter from "./useRenderCounter";
-import { CountProvider, useCountContext } from "./count-context";
+import {
+  CountProvider,
+  useCountState,
+  useCountUpdater
+} from "./count-split-context";
 
 const Component = () => {
   const renderCount = useRenderCounter();
@@ -34,7 +38,7 @@ const MemoComponentWithChildren = React.memo(({ children }) => {
 });
 
 const MemoComponentConsumingCount = React.memo(() => {
-  const { count } = useCountContext();
+  const count = useCountState();
   const renderCount = useRenderCounter();
   return (
     <div style={{ border: "1px solid black", padding: 10 }}>
@@ -45,7 +49,7 @@ const MemoComponentConsumingCount = React.memo(() => {
 });
 
 const MemoComponentConsumingCountWithChildren = React.memo(({ children }) => {
-  const { count } = useCountContext();
+  const count = useCountState();
   const renderCount = useRenderCounter();
   return (
     <div style={{ border: "1px solid black", padding: 10 }}>
@@ -58,7 +62,7 @@ const MemoComponentConsumingCountWithChildren = React.memo(({ children }) => {
 });
 
 const ComponentConsumingCount = () => {
-  const { count } = useCountContext();
+  const count = useCountState();
   const renderCount = useRenderCounter();
   return (
     <div style={{ border: "1px solid black", padding: 10 }}>
@@ -69,7 +73,7 @@ const ComponentConsumingCount = () => {
 };
 
 const MemoCounter = React.memo(() => {
-  const { increment } = useCountContext();
+  const increment = useCountUpdater();
   const renderCount = useRenderCounter();
   return (
     <div style={{ border: "1px solid black", padding: 10 }}>
@@ -80,7 +84,7 @@ const MemoCounter = React.memo(() => {
 });
 
 const Counter = () => {
-  const { increment } = useCountContext();
+  const increment = useCountUpdater();
   const renderCount = useRenderCounter();
   return (
     <div style={{ border: "1px solid black", padding: 10 }}>
@@ -90,23 +94,25 @@ const Counter = () => {
   );
 };
 
-export default function ContextExample() {
+export default function SplitContextExample() {
   const [, forceUpdate] = React.useState();
   const renderCount = useRenderCounter();
   return (
     <section>
-      <h3>Example: Context</h3>
+      <h3>Example: Split Context</h3>
       <p>
         Question 1: Which components re-render when the count is incremented?
       </p>
-      <p>Answer 2: Those that consume the count context</p>
+      <p>
+        Answer 2: Those that consume the count <strong>state</strong> context
+      </p>
       <p>
         Question 2: Which components re-render when the provider's parent
         re-renders?
       </p>
       <p>
-        Answer 2: All except the one that is wrapped in <code>React.memo</code>{" "}
-        and doesn't consume the context
+        Answer 2: Only those that are wrapped in <code>React.memo</code> and
+        don't have any children
       </p>
       <div className="frame">
         <div className="forceRender">
@@ -119,8 +125,8 @@ export default function ContextExample() {
           <MemoComponentWithChildren>
             <span>&#129490;</span>
           </MemoComponentWithChildren>
-          <Counter />
           <MemoCounter />
+          <Counter />
           <ComponentConsumingCount />
           <MemoComponentConsumingCount />
           <MemoComponentConsumingCountWithChildren>
