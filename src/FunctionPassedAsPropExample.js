@@ -52,7 +52,7 @@ export default function Example1() {
   const testFn = () => {};
   return (
     <section>
-      <h3>Example 1</h3>
+      <h3>Example: Function passed as prop</h3>
       <p>Question: Does a child re-render if a function is passed as a prop?</p>
       <p>
         Answer: Yes, unless the child is wrapped in <code>React.memo</code>

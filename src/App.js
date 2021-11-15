@@ -1,11 +1,11 @@
 import React from "react";
 import "./styles.css";
-import Example1 from "./Example1";
+import FunctionPassedAsPropExample from "./FunctionPassedAsPropExample";
 
 export default function App() {
   return (
     <main className="frame">
-      <Example1 />
+      <FunctionPassedAsPropExample />
     </main>
   );
 }
