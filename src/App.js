@@ -76,7 +76,7 @@ function Example1() {
       <p>Question: Does a child re-render if a function is passed as a prop?</p>
       <p>
         Answer: Yes, unless the child is wrapped in <code>React.memo</code>
-        and the function is wrapped in <code>useCallback</code>
+        &nbsp;and the function is wrapped in <code>useCallback</code>.
       </p>
       <div className="frame">
         <div className="forceRender">
