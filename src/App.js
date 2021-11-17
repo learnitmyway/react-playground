@@ -7,6 +7,7 @@ import LiftedUpChildExample from "./LiftedUpChildExample";
 import ContextExample from "./ContextExample";
 import MemoizedContextExample from "./MemoizedContextExample";
 import SplitContextExample from "./SplitContextExample";
+import RenderPropExample from "./RenderPropExample";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <SimpleExample />
       <FunctionPassedAsPropExample />
       <LiftedUpChildExample />
+      <RenderPropExample />
       <ContextExample />
       <MemoizedContextExample />
       <SplitContextExample />
