@@ -9,6 +9,7 @@ import MemoizedContextExample from "./MemoizedContextExample";
 import SplitContextExample from "./SplitContextExample";
 import RenderPropExample from "./RenderPropExample";
 import ListExample from "./ListExample";
+import RenderPropListExample from "./RenderPropListExample";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
       <MemoizedContextExample />
       <SplitContextExample />
       <ListExample />
+      <RenderPropListExample />
     </main>
   );
 }

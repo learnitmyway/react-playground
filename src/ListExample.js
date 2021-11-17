@@ -29,7 +29,7 @@ export default function ListExample() {
           <button onClick={() => forceUpdate({})}>force render</button>
         </div>
         {data.map((entry) => (
-          <Component entry={entry} />
+          <Component entry={entry} key={entry} />
         ))}
       </div>
     </section>
