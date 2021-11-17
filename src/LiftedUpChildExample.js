@@ -20,7 +20,7 @@ const ChildComponent = () => {
   return (
     <div className="frame">
       {renderCount}
-      ChildComponent
+      ChildComponent passed as prop
     </div>
   );
 };

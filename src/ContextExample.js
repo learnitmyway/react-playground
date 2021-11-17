@@ -105,8 +105,8 @@ export default function ContextExample() {
         re-renders?
       </p>
       <p>
-        Answer 2: All except the one that is wrapped in <code>React.memo</code>{" "}
-        and doesn't consume the context
+        Answer 2: All except the one that is wrapped in <code>React.memo</code>,
+        doesn't consume the context and has no children passed as a prop
       </p>
       <div className="frame">
         <div className="forceRender">

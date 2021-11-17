@@ -101,18 +101,12 @@ export default function SplitContextExample() {
     <section>
       <h3>Example: Split Context</h3>
       <p>
-        Question 1: Which components re-render when the count is incremented?
+        Question 1: Which components are spared a re-render if the context is
+        split?
       </p>
       <p>
-        Answer 2: Those that consume the count <strong>state</strong> context
-      </p>
-      <p>
-        Question 2: Which components re-render when the provider's parent
-        re-renders?
-      </p>
-      <p>
-        Answer 2: Only those that are wrapped in <code>React.memo</code> and
-        don't have any children
+        Answer 1: Those that no longer consume the count <strong>state</strong>{" "}
+        context
       </p>
       <div className="frame">
         <div className="forceRender">
