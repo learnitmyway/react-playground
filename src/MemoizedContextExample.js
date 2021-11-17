@@ -1,6 +1,6 @@
 import React from "react";
 import useRenderCounter from "./useRenderCounter";
-import { CountProvider, useCountContext } from "./count-context";
+import { CountProvider, useCountContext } from "./memoized-count-context";
 
 const Component = () => {
   const renderCount = useRenderCounter();
@@ -95,19 +95,16 @@ export default function ContextExample() {
   const renderCount = useRenderCounter();
   return (
     <section>
-      <h3>Example: Context</h3>
+      <h3>Example: Memoized Context value</h3>
       <p>
-        Question 1: Which components re-render when the count is incremented?
-      </p>
-      <p>Answer 1: Those that consume the count context</p>
-      <p>
-        Question 2: Which components re-render when the provider's parent
-        re-renders?
+        Question: Which components are spared a re-render if the context value
+        is memoized?
       </p>
       <p>
-        Answer 2: All except the one that is wrapped in <code>React.memo</code>{" "}
-        and doesn't consume the context
+        Answer: only the children that are passed as props, wrapped in{" "}
+        <code>React.memo</code> and have no children themselves
       </p>
+
       <div className="frame">
         <div className="forceRender">
           {renderCount}
