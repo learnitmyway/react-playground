@@ -32,7 +32,7 @@ export default function ListExample() {
         Question: Does providing a key for each component in an array prevent
         re-renders?
       </p>
-      <p>Answer: No.</p>
+      <p>Answer: No, but memoizing does.</p>
       <div className="frame">
         <div className="forceRender">
           {renderCount}
