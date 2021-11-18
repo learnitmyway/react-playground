@@ -64,7 +64,7 @@ export default function LiftedUpChildExample() {
       </p>
       <p>
         Answer 1: The child re-rerenders when its grandparent re-renders unless
-        it is memoized.
+        it is memoized, but re-rerendering the direct parent has no effect.
       </p>
       <p>
         Question 2: What if the parent is wrapped in <code>React.memo</code>?
