@@ -21,22 +21,33 @@ const MemoComponent = React.memo((props) => (
   <Component {...props} name="MemoComponent" />
 ));
 
-const ChildComponent = ({ fnType = "function" }) => {
+const ChildComponent = ({ name = "ChildComponent", fnType = "function" }) => {
   const renderCount = useRenderCounter();
   return (
     <div className="frame">
       {renderCount}
-      <span>ChildComponent passed as {fnType}</span>
+      <span>
+        {name} passed as {fnType}
+      </span>
     </div>
   );
 };
+
+const MemoChildComponent = React.memo((props) => (
+  <ChildComponent {...props} name="MemoChildComponent" />
+));
 
 export default function RenderPropExample() {
   const [, forceUpdate] = React.useState();
   const renderCount = useRenderCounter();
   const fn = () => <ChildComponent />;
+  const fnMemoChild = () => <MemoChildComponent />;
   const memoizedFn = React.useCallback(
     () => <ChildComponent fnType="memoized function" />,
+    []
+  );
+  const memoizedFnMemoChild = React.useCallback(
+    () => <MemoChildComponent fnType="memoized function" />,
     []
   );
   return (
@@ -47,13 +58,11 @@ export default function RenderPropExample() {
         prop?
       </p>
       <p>
-        Answer: The child will re-render when its parent (ie the the component
-        that receives it) re-renders and it will re-rerender when its
-        grandparent re-renders unless the parent and render prop function are
-        memoized
+        Answer:{" "}
+        <span role="img" aria-label="head exploding">
+          🤯
+        </span>
       </p>
-      <p>Question: What if the child component is memoized?</p>
-      <p>Answer: TODO</p>
       <div className="frame">
         <div className="forceRender">
           {renderCount}
@@ -61,8 +70,12 @@ export default function RenderPropExample() {
         </div>
         <Component>{fn}</Component>
         <Component>{memoizedFn}</Component>
+        <Component>{fnMemoChild}</Component>
+        <Component>{memoizedFnMemoChild}</Component>
         <MemoComponent>{fn}</MemoComponent>
         <MemoComponent>{memoizedFn}</MemoComponent>
+        <MemoComponent>{fnMemoChild}</MemoComponent>
+        <MemoComponent>{memoizedFnMemoChild}</MemoComponent>
       </div>
     </section>
   );
