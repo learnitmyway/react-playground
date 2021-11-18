@@ -52,6 +52,8 @@ export default function RenderPropExample() {
         grandparent re-renders unless the parent and render prop function are
         memoized
       </p>
+      <p>Question: What if the child component is memoized?</p>
+      <p>Answer: TODO</p>
       <div className="frame">
         <div className="forceRender">
           {renderCount}
