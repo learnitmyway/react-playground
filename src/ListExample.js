@@ -11,6 +11,16 @@ const Component = ({ entry }) => {
   );
 };
 
+const MemoComponent = React.memo(({ entry }) => {
+  const renderCount = useRenderCounter();
+  return (
+    <div className="frame">
+      {renderCount}
+      {entry}
+    </div>
+  );
+});
+
 export default function ListExample() {
   const [, forceUpdate] = React.useState();
   const renderCount = useRenderCounter();
@@ -28,9 +38,18 @@ export default function ListExample() {
           {renderCount}
           <button onClick={() => forceUpdate({})}>force render</button>
         </div>
-        {data.map((entry) => (
-          <Component entry={entry} key={entry} />
-        ))}
+        <div className="frame">
+          Component
+          {data.map((entry) => (
+            <Component entry={entry} key={entry} />
+          ))}
+        </div>
+        <div className="frame">
+          MemoComponent
+          {data.map((entry) => (
+            <MemoComponent entry={entry} key={entry} />
+          ))}
+        </div>
       </div>
     </section>
   );
