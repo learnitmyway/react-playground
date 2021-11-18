@@ -24,7 +24,7 @@ const MemoComponent = React.memo(({ entry }) => {
 export default function ListExample() {
   const [, forceUpdate] = React.useState();
   const renderCount = useRenderCounter();
-  const data = React.useMemo(() => ["a", "b"], []);
+  const [data, setData] = React.useState(["a", "b"]);
   return (
     <section>
       <h3>Example: Lists</h3>
@@ -37,6 +37,7 @@ export default function ListExample() {
         <div className="forceRender">
           {renderCount}
           <button onClick={() => forceUpdate({})}>force render</button>
+          <button onClick={() => setData([...data, "c"])}>append</button>
         </div>
         <div className="frame">
           Component
