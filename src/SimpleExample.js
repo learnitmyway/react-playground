@@ -1,25 +1,17 @@
 import React from "react";
 import useRenderCounter from "./useRenderCounter";
 
-const Component = () => {
+const Component = ({ name = "Component" }) => {
   const renderCount = useRenderCounter();
   return (
     <div className="frame">
       {renderCount}
-      Component
+      {name}
     </div>
   );
 };
 
-const MemoComponent = React.memo(() => {
-  const renderCount = useRenderCounter();
-  return (
-    <div className="frame">
-      {renderCount}
-      MemoComponent
-    </div>
-  );
-});
+const MemoComponent = React.memo(() => <Component name="MemoComponent" />);
 
 export default function Example1() {
   const [, forceUpdate] = React.useState();
