@@ -10,11 +10,13 @@ import SplitContextExample from "./SplitContextExample";
 import RenderPropExample from "./RenderPropExample";
 import ListExample from "./ListExample";
 import { UseEffectExample } from "./UseEffectExample";
+import { UseEffectChildExample } from "./UseEffectChildExample";
 
 export default function App() {
   return (
     <main className="frame">
       <UseEffectExample />
+      <UseEffectChildExample />
       <SimpleExample />
       <FunctionPassedAsPropExample />
       <LiftedUpChildExample />
