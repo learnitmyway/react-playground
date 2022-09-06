@@ -27,15 +27,15 @@ export function UseEffectExample() {
     <section>
       <h3>Example: Use Effect</h3>
       <p>
-        Question 1: How often is an effect called if the dependency is an
-        object?
+        Question 1: How often is an effect called if the dependency is an object
+        and state is updated?
       </p>
       <p>Answer 1: unlimited</p>
       <p>
-        Question 1: How often is an effect called if the dependency is a
-        primitive that doesn't change?
+        Question 2: How often is an effect called if the dependency is a
+        primitive that doesn't change and state is updated?
       </p>
-      <p>Answer 1: only once</p>
+      <p>Answer 2: only once</p>
       <div className="frame">
         <div className="forceRender">
           {renderCount}
