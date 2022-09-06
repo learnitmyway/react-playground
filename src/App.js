@@ -9,10 +9,12 @@ import MemoizedContextExample from "./MemoizedContextExample";
 import SplitContextExample from "./SplitContextExample";
 import RenderPropExample from "./RenderPropExample";
 import ListExample from "./ListExample";
+import { UseEffectExample } from "./UseEffectExample";
 
 export default function App() {
   return (
     <main className="frame">
+      <UseEffectExample />
       <SimpleExample />
       <FunctionPassedAsPropExample />
       <LiftedUpChildExample />
